@@ -26,7 +26,7 @@
 
 /* _____________ Your Code Here _____________ */
 
-type MyReturnType<Function> = Function extends (...args: any[]) => infer Result ? Result : any;
+type MyReturnType<Function> = Function extends (...args: any[]) => infer ReturnType ? ReturnType : any;
 
 
 /* _____________ Test Cases _____________ */
