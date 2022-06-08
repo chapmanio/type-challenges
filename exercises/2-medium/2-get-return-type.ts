@@ -26,6 +26,13 @@
 
 /* _____________ Your Code Here _____________ */
 
+/*
+  NOTES
+  - `any[]` is used because it works when no arguments have been supplied (i.e. the ...rest statement is empty)
+  - `infer` allows us to define a variable within our conditional (extends) to be referenced or returned.
+  - `infer` can only be used in the "true" branch of the extends conditional
+*/
+
 type MyReturnType<Function> = Function extends (...args: any[]) => infer ReturnType ? ReturnType : any;
 
 

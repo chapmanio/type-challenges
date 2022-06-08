@@ -32,6 +32,11 @@
 
 /* _____________ Your Code Here _____________ */
 
+/*
+  NOTES
+   - `keyof` is used to create a union of all keys, eg. `'title | 'description' | 'completed'`
+*/
+
 type MyPick<Type, Keys extends keyof Type> = {
   [Property in Keys]: Type[Property];
 }
