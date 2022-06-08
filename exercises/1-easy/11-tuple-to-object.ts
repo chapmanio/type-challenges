@@ -27,7 +27,6 @@
   - `T[number]` is accessing the "index" of the current mapped type
 */
 
-
 type TupleToObject<Tuple extends readonly any[]> = {
   [Property in Tuple[number]]: Property;
 }
