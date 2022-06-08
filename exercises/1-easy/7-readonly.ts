@@ -38,7 +38,6 @@
   - `keyof` converts the keys into a union type, eg. `'description' | 'completed'`
 */
 
-
 type MyReadonly<Type> = {
   readonly [Property in keyof Type]: Type[Property]
 }
