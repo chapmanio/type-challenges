@@ -23,7 +23,6 @@
   > View on GitHub: https://tsch.js.org/2
 */
 
-
 /* _____________ Your Code Here _____________ */
 
 /*
@@ -33,11 +32,12 @@
   - `infer` can only be used in the "true" branch of the extends conditional
 */
 
-type MyReturnType<Function> = Function extends (...args: any[]) => infer ReturnType ? ReturnType : any;
-
+type MyReturnType<Function> = Function extends (...args: any[]) => infer ReturnType
+  ? ReturnType
+  : any;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils';
 
 type cases = [
   Expect<Equal<string, MyReturnType<() => string>>>,
@@ -46,19 +46,17 @@ type cases = [
   Expect<Equal<Promise<boolean>, MyReturnType<() => Promise<boolean>>>>,
   Expect<Equal<() => 'foo', MyReturnType<() => () => 'foo'>>>,
   Expect<Equal<1 | 2, MyReturnType<typeof fn>>>,
-  Expect<Equal<1 | 2, MyReturnType<typeof fn1>>>,
-]
+  Expect<Equal<1 | 2, MyReturnType<typeof fn1>>>
+];
 
 type ComplexObject = {
-  a: [12, 'foo']
-  bar: 'hello'
-  prev(): number
-}
+  a: [12, 'foo'];
+  bar: 'hello';
+  prev(): number;
+};
 
-const fn = (v: boolean) => v ? 1 : 2
-const fn1 = (v: boolean, w: any) => v ? 1 : 2
-
-
+const fn = (v: boolean) => (v ? 1 : 2);
+const fn1 = (v: boolean, w: any) => (v ? 1 : 2);
 
 /* _____________ Further Steps _____________ */
 /*

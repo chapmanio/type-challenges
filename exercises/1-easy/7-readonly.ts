@@ -29,7 +29,6 @@
   > View on GitHub: https://tsch.js.org/7
 */
 
-
 /* _____________ Your Code Here _____________ */
 
 /*
@@ -39,27 +38,22 @@
 */
 
 type MyReadonly<Type> = {
-  readonly [Property in keyof Type]: Type[Property]
-}
-
+  readonly [Property in keyof Type]: Type[Property];
+};
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils';
 
-type cases = [
-  Expect<Equal<MyReadonly<Todo1>, Readonly<Todo1>>>,
-]
+type cases = [Expect<Equal<MyReadonly<Todo1>, Readonly<Todo1>>>];
 
 interface Todo1 {
-  title: string
-  description: string
-  completed: boolean
+  title: string;
+  description: string;
+  completed: boolean;
   meta: {
-    author: string
-  }
+    author: string;
+  };
 }
-
-
 
 /* _____________ Further Steps _____________ */
 /*

@@ -16,9 +16,7 @@
   > View on GitHub: https://tsch.js.org/533
 */
 
-
 /* _____________ Your Code Here _____________ */
-
 
 /*
   NOTES
@@ -27,18 +25,15 @@
 
 type Concat<ArrayOne extends any[], ArrayTwo extends any[]> = [...ArrayOne, ...ArrayTwo];
 
-
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils';
 
 type cases = [
   Expect<Equal<Concat<[], []>, []>>,
   Expect<Equal<Concat<[], [1]>, [1]>>,
   Expect<Equal<Concat<[1, 2], [3, 4]>, [1, 2, 3, 4]>>,
-  Expect<Equal<Concat<['1', 2, '3'], [false, boolean, '4']>, ['1', 2, '3', false, boolean, '4']>>,
-]
-
-
+  Expect<Equal<Concat<['1', 2, '3'], [false, boolean, '4']>, ['1', 2, '3', false, boolean, '4']>>
+];
 
 /* _____________ Further Steps _____________ */
 /*

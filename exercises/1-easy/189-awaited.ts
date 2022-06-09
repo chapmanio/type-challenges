@@ -12,7 +12,6 @@
   > View on GitHub: https://tsch.js.org/189
 */
 
-
 /* _____________ Your Code Here _____________ */
 
 /*
@@ -22,25 +21,24 @@
   - To handle the nested promise, recall the same type with the inferred `ReturnedType`
 */
 
-type MyAwaited<PromiseType> = PromiseType extends Promise<infer ReturnedType> ? MyAwaited<ReturnedType> : PromiseType;
-
+type MyAwaited<PromiseType> = PromiseType extends Promise<infer ReturnedType>
+  ? MyAwaited<ReturnedType>
+  : PromiseType;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils';
 
-type X = Promise<string>
-type Y = Promise<{ field: number }>
-type Z = Promise<Promise<string | number>>
+type X = Promise<string>;
+type Y = Promise<{ field: number }>;
+type Z = Promise<Promise<string | number>>;
 
 type cases = [
   Expect<Equal<MyAwaited<X>, string>>,
   Expect<Equal<MyAwaited<Y>, { field: number }>>,
-  Expect<Equal<MyAwaited<Z>, string | number>>,
-]
+  Expect<Equal<MyAwaited<Z>, string | number>>
+];
 
-type error = MyAwaited<number>
-
-
+type error = MyAwaited<number>;
 
 /* _____________ Further Steps _____________ */
 /*

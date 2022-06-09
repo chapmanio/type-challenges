@@ -26,21 +26,14 @@
   > View on GitHub: https://tsch.js.org/13
 */
 
-
 /* _____________ Your Code Here _____________ */
 
 type HelloWorld = string;
 
-
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect, NotAny } from '@type-challenges/utils'
+import type { Equal, Expect, NotAny } from '@type-challenges/utils';
 
-type cases = [
-  Expect<NotAny<HelloWorld>>,
-  Expect<Equal<HelloWorld, string>>,
-]
-
-
+type cases = [Expect<NotAny<HelloWorld>>, Expect<Equal<HelloWorld, string>>];
 
 /* _____________ Further Steps _____________ */
 /*

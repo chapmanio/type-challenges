@@ -28,7 +28,6 @@
   > View on GitHub: https://tsch.js.org/3
 */
 
-
 /* _____________ Your Code Here _____________ */
 
 /*
@@ -45,34 +44,35 @@ type MyPick<ObjectType, Keys extends keyof ObjectType> = {
 
 type MyExclude<UnionType, KeyToExclude> = UnionType extends KeyToExclude ? never : UnionType;
 
-type MyOmit<ObjectType, Keys extends keyof any> = MyPick<ObjectType, MyExclude<keyof ObjectType, Keys>>;
+type MyOmit<ObjectType, Keys extends keyof any> = MyPick<
+  ObjectType,
+  MyExclude<keyof ObjectType, Keys>
+>;
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils';
 
 type cases = [
   Expect<Equal<Expected1, MyOmit<Todo, 'description'>>>,
-  Expect<Equal<Expected2, MyOmit<Todo, 'description' | 'completed'>>>,
-]
+  Expect<Equal<Expected2, MyOmit<Todo, 'description' | 'completed'>>>
+];
 
-type error = MyOmit<Todo, 'description' | 'invalid'>
+type error = MyOmit<Todo, 'description' | 'invalid'>;
 
 interface Todo {
-  title: string
-  description: string
-  completed: boolean
+  title: string;
+  description: string;
+  completed: boolean;
 }
 
 interface Expected1 {
-  title: string
-  completed: boolean
+  title: string;
+  completed: boolean;
 }
 
 interface Expected2 {
-  title: string
+  title: string;
 }
-
-
 
 /* _____________ Further Steps _____________ */
 /*

@@ -18,7 +18,6 @@
   > View on GitHub: https://tsch.js.org/11
 */
 
-
 /* _____________ Your Code Here _____________ */
 
 /*
@@ -29,21 +28,23 @@
 
 type TupleToObject<Tuple extends readonly any[]> = {
   [Property in Tuple[number]]: Property;
-}
-
+};
 
 /* _____________ Test Cases _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils';
 
-const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const
+const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const;
 
 type cases = [
-  Expect<Equal<TupleToObject<typeof tuple>, { tesla: 'tesla'; 'model 3': 'model 3'; 'model X': 'model X'; 'model Y': 'model Y' }>>,
-]
+  Expect<
+    Equal<
+      TupleToObject<typeof tuple>,
+      { tesla: 'tesla'; 'model 3': 'model 3'; 'model X': 'model X'; 'model Y': 'model Y' }
+    >
+  >
+];
 
-type error = TupleToObject<[[1, 2], {}]>
-
-
+type error = TupleToObject<[[1, 2], {}]>;
 
 /* _____________ Further Steps _____________ */
 /*
